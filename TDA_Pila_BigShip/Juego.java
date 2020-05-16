@@ -22,19 +22,21 @@ public class Juego {
 	  PilaMaterial<Integer> PM = new PilaMaterial<>(5);//numero max que puede llegar a tener
 	
 	  //primero crear un arreglo para que se guarden todos los materiales para despues utilizarlos
-	int mat[]=new int[30];
+	  //----> Vector auxiliar----> Quitar int mat[]=new int[30];
+	  //Crear una variable para guardar el tipo de material que se ira modificando 
+	  int VarTM=0;
 	boolean ResinaC=false;
 	//--------------Empieza el juego-----------------
-	for(int x=0;x<mat.length;x++) {
-		//guardar valores de 0-2 aleatoriamente
-		mat[x]=(int)(Math.random()*(2-(-1)));
+	for(int x=0;x<30;x++) {
+		//Definir el tipo de material
+		VarTM=(int)(Math.random()*(2-(-1)));
 		//se define lo que se va apilar (Numero aleatorio)
 		al=(int)(Math.random()*(10-1));
 		//MADERA
-		if(mat[x]==0) { 
+		if(VarTM==0) { 
 			  try {
 				  PM.apilar(al);
-				  System.out.println("M");//Conteo de las Maderas
+				 // System.out.println("M");//Conteo de las Maderas
 				  if((PM.cantidad()==4)&(Mesa==false)) {  
 					  Mesa=true;
 					  System.out.println("Mesa adquirida");
@@ -54,14 +56,14 @@ public class Juego {
 					  //Vaciar la pila
 					  PM.vaciarComple();
 					  //impresion de vector con materiales
-					  System.out.println("      MATERIALES EN EL MAPA:");
-					     PilaMaterial.impVectorM(mat);
+					  //System.out.println("      MATERIALES EN EL MAPA:");
+					   //  PilaMaterial.impVectorM(mat);
 					  //Termina el programa con gane
 					  System.exit(0);
 				  }
 			  }
 			  //RESINA
-		}if(mat[x]==1) {
+		}if(VarTM==1) {
 			  try {
 			 PR.apilar(al);
 		   }catch(DesbordamientoMateriales E) {
@@ -74,7 +76,7 @@ public class Juego {
 			     }
 			   }  
 		 }//HILO
-		  if(mat[x]==2){
+		  if(VarTM==2){
 			  try {
 			  PH.apilar(al);
 		    }catch(DesbordamientoMateriales E) {
@@ -94,8 +96,8 @@ public class Juego {
 		    }   
 	    }
 	//imprimir el vector para ver los materiales en el mapa
-	System.out.println("      MATERIALES EN EL MAPA:");
-     PilaMaterial.impVectorM(mat);
+	//System.out.println("      MATERIALES EN EL MAPA:");
+     //PilaMaterial.impVectorM(mat);
 	}
 }
 
