@@ -6,7 +6,7 @@ public class PruebasEncadenamientos {
 		InputStreamReader r=new InputStreamReader(System.in);
 		BufferedReader Teclado=new BufferedReader(r);
 		String Pal="";
-		int Conteo=0;
+		String resp="";
 		
 		NodoCadena Inicial=null;
 		NodoCadena SigNod=null;
@@ -24,8 +24,9 @@ public class PruebasEncadenamientos {
 				Actual.Siguiente=SigNod;
 				Actual=SigNod;
 			}
-			Conteo++;
-		}while(Conteo<10);
+			System.out.println("Deseas agregar S/N");
+			resp=Teclado.readLine();
+		}while(resp.compareToIgnoreCase("S")==0);
 		NodoCadena ref=Inicial;
 		//String ref=Inicial;
 		while(ref!=null) {
